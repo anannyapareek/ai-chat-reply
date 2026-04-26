@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "AI Chat Reply",
+  "version": "1.0.0",
+  "description": "WhatsApp-style reply buttons for ChatGPT, Claude and Gemini. Click any message to quote it in your next response.",
+
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://chatgpt.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.openai.com/*",
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*"
+      ],
+      "js": ["platforms.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI Chat Reply"
+  }
+}

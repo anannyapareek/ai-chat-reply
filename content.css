@@ -1,0 +1,161 @@
+/* ============================================================
+   content.css
+   Styles for the reply button and quote bar UI.
+   These are injected into the AI chat pages.
+   ============================================================ */
+
+
+/* ---- Reply button container ---- */
+.ai-reply-btn-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 6px;
+  opacity: 0;                    /* hidden by default */
+  transition: opacity 0.15s ease;
+}
+
+/* Show the button when hovering over the message */
+[data-reply-injected="true"]:hover .ai-reply-btn-container,
+[data-testid]:hover .ai-reply-btn-container,
+message-content:hover .ai-reply-btn-container,
+.ai-reply-btn-container:hover,
+structured-content-container:hover .ai-reply-btn-container,
+div[class*="response"]:hover .ai-reply-btn-container {
+  opacity: 1;
+}
+
+
+
+/* ---- The reply button itself ---- */
+.ai-reply-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;                /* neutral gray */
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;           /* pill shape */
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.ai-reply-btn:hover {
+  background: #f3f4f6;
+  color: #111827;
+  border-color: #d1d5db;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .ai-reply-btn {
+    color: #9ca3af;
+    border-color: #374151;
+  }
+  .ai-reply-btn:hover {
+    background: #1f2937;
+    color: #f9fafb;
+    border-color: #4b5563;
+  }
+}
+
+
+/* ---- Quote bar (appears above the input box) ---- */
+.ai-quote-bar {
+  width: 100%;
+  padding: 0 4px 6px 4px;
+  box-sizing: border-box;
+  animation: ai-slide-in 0.15s ease;  /* smooth entrance */
+}
+
+@keyframes ai-slide-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ai-quote-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f0f9ff;             /* light blue tint */
+  border-left: 3px solid #3b82f6; /* blue left border — WhatsApp style */
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+/* Dark mode for quote bar */
+@media (prefers-color-scheme: dark) {
+  .ai-quote-bar-inner {
+    background: #1e3a5f;
+    border-left-color: #60a5fa;
+  }
+}
+
+.ai-quote-bar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.ai-quote-bar-role {
+  font-size: 11px;
+  font-weight: 600;
+  color: #3b82f6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ai-quote-bar-role { color: #60a5fa; }
+}
+
+.ai-quote-bar-text {
+  font-size: 13px;
+  color: #374151;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;       /* shows "..." if text is too long */
+}
+
+@media (prefers-color-scheme: dark) {
+  .ai-quote-bar-text { color: #d1d5db; }
+}
+
+
+/* ---- Close button on the quote bar ---- */
+.ai-quote-bar-close {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #9ca3af;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.ai-quote-bar-close:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ai-quote-bar-close:hover {
+    background: #450a0a;
+    color: #fca5a5;
+  }
+}
