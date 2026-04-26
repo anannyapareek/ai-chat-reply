@@ -1,10 +1,13 @@
 # ↩ AI Chat Reply
 
+![AI Chat Reply Demo](demo.gif)
+
 > WhatsApp-style reply buttons for ChatGPT, Claude and Gemini.
 
 Hover over any message in an AI chat and click the **↩ Reply** button to quote it in your next message — just like WhatsApp. The AI will know exactly which message you're referring to.
 
 ---
+
 
 ## Supported Platforms
 
