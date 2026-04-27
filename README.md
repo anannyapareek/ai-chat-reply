@@ -1,4 +1,3 @@
-# QuoteBack - AI Chat Reply
 # ↩ AI Chat Reply
 
 ![AI Chat Reply Demo](demo.gif)
