@@ -1,12 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "AI Chat Reply",
+  "name": "Quoteback - AI Chat Reply",
   "version": "1.0.0",
   "description": "WhatsApp-style reply buttons for ChatGPT, Claude and Gemini. Click any message to quote it in your next response.",
 
   "permissions": [
-    "storage",
-    "activeTab"
+    "storage"
   ],
 
   "host_permissions": [
